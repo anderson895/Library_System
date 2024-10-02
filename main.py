@@ -278,15 +278,27 @@ def show_register():
 def open_main_menu():
     clear_window()
     # Maximize the window on opening
-    root.state('zoomed')  # Maximize windo
+    root.state('zoomed')  # Maximize window
 
     # Main window configuration
     root.config(bg="white")  # Main window background color
 
-    # Header section (Title)
-    header_frame = tk.Frame(root, bg="#333333", height=80)
-    header_frame.pack(fill="x", side="top")
+    # Create the header frame
+    header_frame = tk.Frame(root, bg="#333333")
+    header_frame.pack(fill=tk.X)
 
+    # Load the logo image using Pillow to handle different formats
+    logo_image = Image.open("assets/logo.png")  # Replace with your logo path
+    logo_image = logo_image.resize((50, 50), Image.ANTIALIAS)  # Resize if needed
+    logo_photo = ImageTk.PhotoImage(logo_image)  # Create a PhotoImage object
+
+    # Create a label for the logo
+    logo_label = tk.Label(header_frame, image=logo_photo, bg="#333333")
+    logo_label.image = logo_photo  # Keep a reference to the image
+    logo_label.pack(side=tk.LEFT, padx=10, pady=20)  # Align to the LEFT with padding
+
+    # Create the title label
+    current_firstname = "User"  # Example username
     title_label = tk.Label(header_frame, text=f"Welcome, {current_firstname}", fg="white", bg="#333333",
                            font=("Arial", 40, "bold"))
     title_label.pack(side=tk.LEFT, pady=20)  # Align to the LEFT
@@ -377,8 +389,6 @@ def open_main_menu():
 
     status_list.config(state=tk.DISABLED)
     connection.close()
-
-
 
 def view_books():
     clear_window()

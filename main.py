@@ -136,7 +136,7 @@ def show_login():
     root.configure(bg='white')
     # Load and place the image on the left side
     img = Image.open("assets/background.png")
-    img = img.resize((300, 900), Image.ANTIALIAS)  # Resize image to fit the left side
+    img = img.resize((300, 900), Image.LANCZOS)  # Resize image to fit the left side
     img = ImageTk.PhotoImage(img)
     img_label = tk.Label(root, image=img)
     img_label.image = img  # Keep a reference to avoid garbage collection
@@ -195,7 +195,7 @@ def show_register():
     root.configure(bg='white')
     # Load and place the image on the left side
     img = Image.open("assets/background.png")
-    img = img.resize((300, 900), Image.ANTIALIAS)  # Resize image to fit the left side
+    img = img.resize((300, 900), Image.LANCZOS)  # Resize image to fit the left side
     img = ImageTk.PhotoImage(img)
     img_label = tk.Label(root, image=img)
     img_label.image = img  # Keep a reference to avoid garbage collection
@@ -289,7 +289,7 @@ def open_main_menu():
 
     # Load the logo image using Pillow to handle different formats
     logo_image = Image.open("assets/logo.png")  # Replace with your logo path
-    logo_image = logo_image.resize((50, 50), Image.ANTIALIAS)  # Resize if needed
+    logo_image = logo_image.resize((50, 50), Image.LANCZOS)  # Resize if needed
     logo_photo = ImageTk.PhotoImage(logo_image)  # Create a PhotoImage object
 
     # Create a label for the logo

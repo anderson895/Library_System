@@ -276,8 +276,9 @@ def open_main_menu():
     header_frame = tk.Frame(root, bg="#333333", height=80)
     header_frame.pack(fill="x", side="top")
 
-    title_label = tk.Label(header_frame, text=f"Welcome, {current_firstname}", fg="white", bg="#333333", font=("Arial", 40, "bold"))
-    title_label.pack(pady=20)
+    title_label = tk.Label(header_frame, text=f"Welcome, {current_firstname}", fg="white", bg="#333333",
+                           font=("Arial", 40, "bold"))
+    title_label.pack(side=tk.LEFT, pady=20)  # Align to the LEFT
 
     # Left-side buttons in a vertical frame
     button_frame = tk.Frame(root, bg="#D3D3D3", width=300)

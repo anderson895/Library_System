@@ -201,10 +201,8 @@ def show_register():
     img_label.image = img  # Keep a reference to avoid garbage collection
     img_label.place(x=0, y=0, width=300, height=900)
 
-
     # Create a frame for the registration form
     form_frame = tk.Frame(root, bg='white', padx=20, pady=20)  # Form frame with padding
-
     form_frame.place(x=400, y=230, width=700, height=900)  # Adjust the position and size of the form
 
     # Register label
@@ -224,10 +222,8 @@ def show_register():
     password_label.grid(row=2, column=0, padx=10, pady=5, sticky='w')
 
     global entry_password
-    entry_password = tk.Entry(form_frame, show="*", width=30, font=("Arial", 14), bg='white',
-                              fg='gray')  # Increased width
+    entry_password = tk.Entry(form_frame, show="*", width=30, font=("Arial", 14), bg='white', fg='gray')  # Increased width
     entry_password.grid(row=2, column=1, pady=5)
-
 
     firstname_label = tk.Label(form_frame, text="Firstname", font=("Arial", 14), bg='white', fg='gray')
     firstname_label.grid(row=3, column=0, padx=10, pady=5, sticky='w')
@@ -235,8 +231,6 @@ def show_register():
     global entry_firstname
     entry_firstname = tk.Entry(form_frame, width=30, font=("Arial", 14), bg='white', fg='gray')  # Increased width
     entry_firstname.grid(row=3, column=1, pady=5)
-
-
 
     lastname_label = tk.Label(form_frame, text="Lastname", font=("Arial", 14), bg='white', fg='gray')
     lastname_label.grid(row=4, column=0, padx=10, pady=5, sticky='w')
@@ -253,15 +247,32 @@ def show_register():
     entry_age = tk.Entry(form_frame, width=30, font=("Arial", 14), bg='white', fg='gray')  # Increased width
     entry_age.grid(row=5, column=1, pady=5)
 
+    # Role Selection
+    role_label = tk.Label(form_frame, text="Role", font=("Arial", 14), bg='white', fg='gray')
+    role_label.grid(row=6, column=0, padx=10, pady=5, sticky='w')
+
+    global role_var
+    role_var = tk.StringVar(value="student")  # Default value
+
+    # Radio buttons for role selection
+    student_radio = tk.Radiobutton(form_frame, text="Student", variable=role_var, value="student", bg='white', fg='gray')
+    student_radio.grid(row=6, column=1, sticky='w')
+
+    teacher_radio = tk.Radiobutton(form_frame, text="Teacher", variable=role_var, value="teacher", bg='white', fg='gray')
+    teacher_radio.grid(row=7, column=1, sticky='w')
+
+    admin_radio = tk.Radiobutton(form_frame, text="Admin", variable=role_var, value="admin", bg='white', fg='gray')
+    admin_radio.grid(row=8, column=1, sticky='w')
+
     # Create Button
     create_button = tk.Button(form_frame, text="Create", command=register_user, bg='#007BFF', fg='white',
                               font=("Arial", 14, "bold"), cursor="hand2")
-    create_button.grid(row=6, column=0, columnspan=2, pady=(20, 10), sticky='ew')  # Centered
+    create_button.grid(row=9, column=0, columnspan=2, pady=(20, 10), sticky='ew')  # Centered
 
     # Back Button
     back_button = tk.Button(form_frame, text="Back", command=show_login, bg='lightgrey', fg='black',
                             font=("Arial", 12), cursor="hand2")
-    back_button.grid(row=7, column=0, columnspan=2, pady=(0, 10), sticky='ew')  # Centered
+    back_button.grid(row=10, column=0, columnspan=2, pady=(0, 10), sticky='ew')
 
 
 def open_main_menu():
